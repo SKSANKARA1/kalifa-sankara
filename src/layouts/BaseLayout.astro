@@ -8,14 +8,15 @@ const { title = "Kalifa Sankara" } = Astro.props;
     <title>{title}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Orbitron:wght@600&display=swap" rel="stylesheet" />
+
     <style>
       :root {
-        --bg-main: #1E1E1E;
-        --bg-alt: #2C2C2C;
-        --text-main: #E6E6E6;
-        --accent-green: #095c47;
-        --accent-green-light: #79FFC6;
-        --accent-green-hover: #18C29C;
+        --bg-main: #dce3ea;
+        --bg-alt: #f1f4f7;
+        --text-main: #1a1a1a;
+        --accent-green: #0a806f;
+        --accent-green-light: #89f2c2;
+        --accent-green-hover: #17c8a3;
       }
 
       html, body {
@@ -23,8 +24,6 @@ const { title = "Kalifa Sankara" } = Astro.props;
         padding: 0;
         min-height: 100%;
         background: linear-gradient(135deg, var(--bg-main), var(--bg-alt));
-        background-size: 400% 400%;
-        animation: gradientLoop 20s ease infinite;
         color: var(--text-main);
         font-family: 'Inter', sans-serif;
       }
@@ -55,7 +54,7 @@ const { title = "Kalifa Sankara" } = Astro.props;
 
       .brand {
         font-family: 'Orbitron', sans-serif;
-        font-size: 1.8rem;
+        font-size: 1.2rem;
         font-weight: 600;
         background: linear-gradient(90deg, var(--accent-green), var(--accent-green-light));
         -webkit-background-clip: text;
@@ -69,7 +68,7 @@ const { title = "Kalifa Sankara" } = Astro.props;
 
       nav a {
         text-decoration: none;
-        color: var(--text-main);
+        color: #0a806f;
         font-weight: 600;
         position: relative;
       }
@@ -119,28 +118,19 @@ const { title = "Kalifa Sankara" } = Astro.props;
         display: flex;
       }
 
-      /* main {
-        flex-grow: 1;
-        max-width: 960px;
-        margin: 0 auto;
-        padding: 2rem;
-      } */
-
-      /* main {
-        flex-grow: 1;
-        padding: 2rem;
-      } */
-
       main {
-        max-width: none;
-        width: 100%;
+        flex-grow: 1;
       }
 
       footer {
-        padding: 2rem;
-        background: #222;
+        background: linear-gradient(135deg, #e5ecf2, #f8fbfd); /* doux, élégant */
+        color: #1a1a1a;
+        padding: 2rem 1rem;
         text-align: center;
-        color: var(--text-main);
+        font-size: 0.95rem;
+        border-top: 1px solid #c3ccd5;
+        margin-top: auto;
+        width: 100%;
       }
 
       footer a {
@@ -163,23 +153,27 @@ const { title = "Kalifa Sankara" } = Astro.props;
       }
     </style>
   </head>
+
   <body>
     <div class="wrapper">
       <header>
-        <div class="brand">Kalifa Sankara</div>
+        <div class="brand">Dr Sambo Kalifa Sankara</div>
         <nav class="desktop-nav">
           <a href="/kalifa-sankara/">Accueil</a>
           <a href="/kalifa-sankara/presentation">Présentation</a>
           <a href="/kalifa-sankara/projets">Projets</a>
+          <a href="/kalifa-sankara/interventions">TV & Presse</a>
           <a href="/kalifa-sankara/expertises">Expertises</a>
           <a href="/kalifa-sankara/conferences">Conférences</a>
           <a href="/kalifa-sankara/contact">Contact</a>
         </nav>
+
         <button class="burger" onclick="document.getElementById('mobile-nav').classList.toggle('open')">☰</button>
         <nav class="mobile-nav" id="mobile-nav">
           <a href="/kalifa-sankara/">Accueil</a>
           <a href="/kalifa-sankara/presentation">Présentation</a>
           <a href="/kalifa-sankara/projets">Projets</a>
+          <a href="/kalifa-sankara/interventions">TV & Presse</a>
           <a href="/kalifa-sankara/expertises">Expertises</a>
           <a href="/kalifa-sankara/conferences">Conférences</a>
           <a href="/kalifa-sankara/contact">Contact</a>
@@ -191,7 +185,10 @@ const { title = "Kalifa Sankara" } = Astro.props;
       </main>
 
       <footer>
-        <p>&copy; {new Date().getFullYear()} Kalifa Sankara — <a href="https://www.linkedin.com/in/kalifa-sankara" target="_blank">LinkedIn</a> | <a href="/kalifa-sankara/cv/kalifa_sankara_cv.pdf">CV</a></p>
+        <p>&copy; {new Date().getFullYear()} Kalifa Sankara — 
+          <a href="https://www.linkedin.com/in/kalifa-sankara" target="_blank">LinkedIn</a> | 
+          <a href="/kalifa-sankara/cv/kalifa_sankara_cv.pdf">CV</a>
+        </p>
       </footer>
     </div>
   </body>

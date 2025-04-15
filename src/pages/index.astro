@@ -1,17 +1,19 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { withBase } from '../utils/path';
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+
+
+const actus = await getCollection('actus');
 ---
 
 <BaseLayout title="Accueil – Kalifa Sankara">
   <section class="banner">
     <div class="banner-content">
       <div class="text">
-        <h1>Kalifa Sankara</h1>
+        <h1>Dr Sambo Kalifa Sankara</h1>
         <p>Retrouvez ici toute mon actualité en exclusivité</p>
-      </div>
-      <div class="photo">
-        <img src={withBase('images/pp_kalifa_1.PNG')} alt="Kalifa Sankara" />
       </div>
     </div>
   </section>
@@ -19,32 +21,37 @@ import { withBase } from '../utils/path';
   <section class="main-grid">
     <aside class="left-column">
       <div class="login-card">
-        <h3>Connexion</h3>
-        <p>Veuillez vous connecter pour aimer et commenter mon actualité</p>
-        <a href="https://linkedin.com" class="btn linkedin">LinkedIn</a>
-        <a href="https://facebook.com" class="btn facebook">Facebook</a>
-        <p class="confidentialite"><a href="#">Termes de Confidentialité</a></p>
+        <h3>Me retrouver sur les réseaux</h3>
+        <p>Rejoignez-moi sur LinkedIn et Facebook pour découvrir mes projets, conférences et réflexions autour de l’IA et l’agriculture durable.</p>
+        <a href="https://fr.linkedin.com/in/dr-sambo-kalifa-sankara-10767283" class="btn linkedin" target="_blank">Voir LinkedIn</a>
+        <a href="https://www.facebook.com/SamboKalifaSankara/" class="btn facebook" target="_blank">Voir Facebook</a>
       </div>
+      
     </aside>
 
     <main class="content-column">
-      <article class="news-card">
-        <div class="news-author">
-          <img src={withBase('images/pp_kalifa_1.PNG')} alt="Kalifa Sankara" />
-          <div>
-            <strong>Kalifa Sankara</strong> · <span>2 min</span>
+      {actus.map((actu: CollectionEntry<'actus'>) => (
+        <article class="news-card">
+          <div class="news-author">
+            <img src={withBase('images/pp_kalifa_1.PNG')} alt="Kalifa Sankara" />
+            <div>
+              <strong>Kalifa Sankara</strong> · <span>{actu.data.date}</span>
+            </div>
           </div>
-        </div>
-        <h3>Fini le temps des regrets – En avant pour un nouveau départ !</h3>
-        <p>Qui n’a jamais eu envie, un jour, de tout abandonner et de disparaître ? Par peur d’être rejeté encore une fois, par crainte d’échouer... <a href="#">Lire la suite</a></p>
-      </article>
+          {actu.data.image && (
+            <img class="actu-image" src={withBase(actu.data.image)} alt={actu.data.titre} />
+          )}
+          <h3>{actu.data.titre}</h3>
+          <p>{actu.data.resume}</p>
+        </article>
+      ))}
     </main>
 
     <aside class="right-column">
       <div class="sponsor-card">
         <h4>À la une</h4>
-        <img src={withBase('images/sponsor.png')} alt="Sponsorisé" />
-        <p>Participez au Forum des Leaders d’Afrique de l’Ouest</p>
+        <img src={withBase('images/agria_1.PNG')} alt="Sponsorisé" />
+        <p>L'intelligence artificielle au service des agriculteurs burkinabe</p>
         <a class="btn gold" href="#">Découvrir</a>
       </div>
     </aside>
@@ -68,48 +75,49 @@ import { withBase } from '../utils/path';
     .banner {
       width: 100%;
       padding: 3rem 0;
-      background: linear-gradient(90deg, #5a7593, #1a2632);
+      background: url('/kalifa-sankara/images/pp_kalifa_2.PNG') no-repeat center center;
+      background-size: cover;
       color: white;
       box-sizing: border-box;
+      position: relative;
+    }
+
+    .banner::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.45);
+      z-index: 1;
     }
 
     .banner-content {
-      max-width: 800px;
-      margin: auto auto;
-      padding: 0 2rem;
+      max-width: 1000px;
+      min-height: 300px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-end;
       align-items: center;
-      flex-wrap: wrap;
-      gap: 2rem;
+      position: relative;
+      text-align: right;
+      z-index: 2;
     }
 
     .banner-content .text {
-      flex: 1 1 60%;
+      flex: 1;
+      max-width: 600px;
+      color: #ffffff;
     }
 
     .banner-content .text h1 {
-      font-size: 2.6rem;
+      font-size: 3rem;
       margin-bottom: 0.5rem;
       color: #ffffff;
     }
 
     .banner-content .text p {
-      font-size: 1.15rem;
-      color: #cfd8dc;
-    }
-
-    .banner-content .photo {
-      flex: 1 1 35%;
-      text-align: right;
-    }
-
-    .banner-content .photo img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 12px;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-      object-fit: cover;
+      font-size: 1.6rem;
+      color: #e0e0e0;
     }
 
     .main-grid {
@@ -136,6 +144,7 @@ import { withBase } from '../utils/path';
       border-radius: 12px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.08);
       padding: 1.5rem;
+      margin-bottom: 2rem;
     }
 
     .btn {
@@ -179,6 +188,14 @@ import { withBase } from '../utils/path';
       object-fit: cover;
     }
 
+    .news-card .actu-image {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin: 1rem 0;
+      object-fit: cover;
+    }
+
     .news-author {
       display: flex;
       gap: 1rem;
@@ -213,10 +230,6 @@ import { withBase } from '../utils/path';
 
       .banner-content {
         flex-direction: column;
-        text-align: center;
-      }
-
-      .banner-content .photo {
         text-align: center;
       }
     }

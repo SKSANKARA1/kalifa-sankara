@@ -1,0 +1,142 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { withBase } from '../utils/path';
+---
+
+<BaseLayout title="Interventions médiatiques – Kalifa Sankara">
+  <section class="media-hero">
+    <h1>Interventions dans les médias</h1>
+    <p>Retrouvez ici les apparitions de Kalifa Sankara dans les médias TV et presse écrite.</p>
+  </section>
+
+  <section class="media-section">
+    <h2>📺 Télévision</h2>
+    <div class="video-grid">
+      <div class="video-card">
+        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Interview TV" allowfullscreen></iframe>
+        <p>Interview sur l'IA et l'agriculture – TV5 Monde</p>
+      </div>
+      <div class="video-card">
+        <iframe src="https://www.youtube.com/embed/3fumBcKC6RE" title="Débat économique" allowfullscreen></iframe>
+        <p>Débat : Souveraineté alimentaire en Afrique – France 24</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="media-section">
+    <h2>📰 Presse</h2>
+    <div class="press-list">
+      <article class="press-article">
+        <img src={withBase('images/lemonde.png')} alt="Le Monde" />
+        <div>
+          <h3><a href="https://lemonde.fr/article" target="_blank">"L’intelligence artificielle au service des agricultures locales"</a></h3>
+          <p>Tribune de Kalifa Sankara dans Le Monde, juillet 2023.</p>
+        </div>
+      </article>
+
+      <article class="press-article">
+        <img src={withBase('images/jeuneafrique.png')} alt="Jeune Afrique" />
+        <div>
+          <h3><a href="https://jeuneafrique.com/article" target="_blank">"Réconcilier climat et productivité : la voie tech-africaine"</a></h3>
+          <p>Entretien dans Jeune Afrique, mars 2024.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <style>
+    .media-hero {
+      text-align: center;
+      padding: 4rem 2rem 2rem;
+      background: linear-gradient(145deg, #e8f0ff, #ffffff);
+      color: #222;
+    }
+
+    .media-hero h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .media-hero p {
+      font-size: 1.2rem;
+      color: #555;
+    }
+
+    .media-section {
+      padding: 3rem 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .media-section h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: #09357b;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .video-card iframe {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: none;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .video-card p {
+      margin-top: 0.5rem;
+      font-size: 1rem;
+      color: #333;
+    }
+
+    .press-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .press-article {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      background: #fff;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .press-article img {
+      width: 80px;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .press-article h3 {
+      margin: 0;
+      font-size: 1.1rem;
+      color: #004080;
+    }
+
+    .press-article p {
+      margin: 0.5rem 0 0;
+      color: #555;
+    }
+
+    .press-article a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    @media (max-width: 768px) {
+      .press-article {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</BaseLayout>

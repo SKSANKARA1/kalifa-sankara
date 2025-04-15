@@ -24,12 +24,13 @@ import { withBase } from '../utils/path';
 
   <style>
     :root {
-      --bg-light: #F4F6F8;
-      --text-dark: #1E1E1E;
+      --bg-light: var(--bg-alt);
+      --text-dark: var(--text-main);
     }
 
     .presentation {
-      background: var(--bg-light);
+      /* background: var(--bg-light); */
+      background: linear-gradient(135deg, var(--bg-light), #ffffff);
       color: var(--text-dark);
       padding: 3rem 2rem;
       border-radius: 12px;
@@ -39,7 +40,7 @@ import { withBase } from '../utils/path';
       font-size: 2.2rem;
       margin-bottom: 2rem;
       font-family: 'Orbitron', sans-serif;
-      color: var(--accent-green);
+      color: var(--accent-green-hover);
       text-align: center;
     }
 
@@ -53,7 +54,7 @@ import { withBase } from '../utils/path';
     .bio img {
       max-width: 220px;
       border-radius: 16px;
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 12px 24px rgba(125, 8, 8, 0.15);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
