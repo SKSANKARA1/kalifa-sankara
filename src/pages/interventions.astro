@@ -11,34 +11,106 @@ import { withBase } from '../utils/path';
 
   <section class="media-section">
     <h2>📺 Télévision</h2>
-    <div class="video-grid">
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Interview TV" allowfullscreen></iframe>
-        <p>Interview sur l'IA et l'agriculture – TV5 Monde</p>
+
+    <div class="carousel-wrapper">
+      <button class="nav left" onclick="scrollCarousel(-1)">‹</button>
+
+      <div class="carousel" id="video-carousel">
+        <div class="video-card">
+          <iframe src="https://www.youtube.com/embed/nLSJ-stTkyQ" title="RTB – Sur la brèche" allowfullscreen></iframe>
+          <p>RTB – Sur la brèche</p>
+        </div>
+        <div class="video-card">
+          <iframe src="https://www.youtube.com/embed/wIxQamWt3S8" title="BF1 – Surface de vérité" allowfullscreen></iframe>
+          <p>BF1 – Surface de vérité</p>
+        </div>
+        <div class="video-card">
+          <iframe src="https://www.youtube.com/embed/wIxQamWt3S8" title="Conférence IA – Ouagadougou" allowfullscreen></iframe>
+          <p>Conférence IA – Ouagadougou</p>
+        </div>
+        <div class="video-card">
+          <iframe src="https://www.youtube.com/embed/dsPFJsRN_FY" title="3Tv – L’invité du Dej matinal" allowfullscreen></iframe>
+          <p>3Tv – L’invité du Dej matinal infos</p>
+        </div>
+        <div class="video-card">
+          <iframe src="https://www.youtube.com/embed/7WjdZlghqDo" title="3Tv – Le tribunal de l’actualité" allowfullscreen></iframe>
+          <p>3Tv – Le tribunal de l’actualité</p>
+        </div>
+        <div class="video-card">
+          <iframe src="https://www.youtube.com/embed/D_zjmIKHqaI" title="Conférence SEINAR" allowfullscreen></iframe>
+          <p>SEINAR – IA & Énergie Solaire</p>
+        </div>
+        <div class="video-card">
+          <iframe src="https://www.youtube.com/embed/jHXNjvhT_08" title="3TV – Journal du dimanche" allowfullscreen></iframe>
+          <p>3TV – Journal du dimanche</p>
+        </div>
       </div>
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/3fumBcKC6RE" title="Débat économique" allowfullscreen></iframe>
-        <p>Débat : Souveraineté alimentaire en Afrique – France 24</p>
-      </div>
+
+      <button class="nav right" onclick="scrollCarousel(1)">›</button>
     </div>
+
+    <p class="youtube-account">
+      📺 Retrouvez toutes les vidéos sur la chaîne YouTube :
+      <a href="https://youtube.com/@sambokalifasankara7893" target="_blank">youtube.com/@sambokalifasankara7893</a>
+    </p>
   </section>
 
   <section class="media-section">
     <h2>📰 Presse</h2>
     <div class="press-list">
       <article class="press-article">
-        <img src={withBase('images/lemonde.png')} alt="Le Monde" />
         <div>
-          <h3><a href="https://lemonde.fr/article" target="_blank">"L’intelligence artificielle au service des agricultures locales"</a></h3>
-          <p>Tribune de Kalifa Sankara dans Le Monde, juillet 2023.</p>
+          <h3><a href="https://digitalmagazine.bf/2025/02/06/deepseek-ou-chatgpt-quelle-ia-generative-choisir-dr-kalifa-sankara-vous-livre-son-analyse-comparative/" target="_blank">
+            "DeepSeek ou ChatGPT : Quelle IA Générative Choisir ?"</a></h3>
+          <p>Digital Magazine Burkina – Février 2025</p>
         </div>
       </article>
 
       <article class="press-article">
-        <img src={withBase('images/jeuneafrique.png')} alt="Jeune Afrique" />
         <div>
-          <h3><a href="https://jeuneafrique.com/article" target="_blank">"Réconcilier climat et productivité : la voie tech-africaine"</a></h3>
-          <p>Entretien dans Jeune Afrique, mars 2024.</p>
+          <h3><a href="https://digitalmagazine.bf/2025/02/15/appelez-moi-desormais-docteur-kalifa-sankara-docteur-en-intelligence-artificielle-avec-les-felicitations-du-jury/" target="_blank">
+            "Appelez-moi désormais Docteur"</a></h3>
+          <p>Digital Magazine Burkina – Février 2025</p>
+        </div>
+      </article>
+
+      <article class="press-article">
+        <div>
+          <h3><a href="https://faso7.com/2023/11/19/intelligence-artificielle-kalifa-sankara-appelle-le-burkina-faso-a-y-investir-davantage/" target="_blank">
+            "Conférence IA novembre 2023"</a></h3>
+          <p>7Infos – Novembre 2023</p>
+        </div>
+      </article>
+
+      <article class="press-article">
+        <div>
+          <h3><a href="https://digitalmagazine.bf/2023/02/27/intelligence-artificielle-interview-avec-m-kalifa-sankara-doctorant-en-intelligence-artificielle/" target="_blank">
+            "Interview avec M. Kalifa Sankara"</a></h3>
+          <p>Digital Magazine Burkina – Février 2023</p>
+        </div>
+      </article>
+
+      <article class="press-article">
+        <div>
+          <h3><a href="https://www.facebook.com/story.php?story_fbid=760932639541299&id=100068737095478" target="_blank">
+            "Les Grands Débats Oratoires du Nord"</a></h3>
+          <p>Facebook – 2023</p>
+        </div>
+      </article>
+
+      <article class="press-article">
+        <div>
+          <h3><a href="https://www.moussonews.com/instantdiasporaburkinabe-lorsque-jai-quitte-le-burkina-je-pensais-deja-au-jour-ou-je-reviendrais-servir-mon-pays-kalifa-sankara/" target="_blank">
+            "Acteurs de la diaspora"</a></h3>
+          <p>Mousso News – 2023</p>
+        </div>
+      </article>
+
+      <article class="press-article">
+        <div>
+          <h3><a href="https://www.moussonews.com/immigration-ces-reussites-inspirantes-et-impactantes/" target="_blank">
+            "Immigration : réussites inspirantes"</a></h3>
+          <p>Mousso News – 2023</p>
         </div>
       </article>
     </div>
@@ -74,24 +146,71 @@ import { withBase } from '../utils/path';
       color: #09357b;
     }
 
-    .video-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    .carousel-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      overflow: hidden;
+    }
+
+    .carousel {
+      display: flex;
       gap: 2rem;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      padding: 1rem 0;
+
+      /* Cacher la scrollbar */
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none;  /* IE/Edge */
+    }
+
+    .carousel::-webkit-scrollbar {
+      display: none; /* Chrome, Safari */
+    }
+
+
+    .video-card {
+      flex: 0 0 360px;
+      background: white;
+      border-radius: 12px;
+      padding: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      text-align: center;
     }
 
     .video-card iframe {
       width: 100%;
-      aspect-ratio: 16 / 9;
-      border: none;
+      height: 215px;
       border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      border: none;
+      margin-bottom: 0.5rem;
     }
 
-    .video-card p {
-      margin-top: 0.5rem;
-      font-size: 1rem;
-      color: #333;
+    .nav {
+      background: var(--accent-green);
+      color: white;
+      border: none;
+      font-size: 2rem;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+    }
+
+    .nav:hover {
+      background: var(--accent-green-hover);
+    }
+
+    .youtube-account {
+      margin-top: 2rem;
+      text-align: center;
+      font-size: 1.05rem;
+    }
+
+    .youtube-account a {
+      color: var(--accent-green);
+      font-weight: 600;
     }
 
     .press-list {
@@ -101,19 +220,10 @@ import { withBase } from '../utils/path';
     }
 
     .press-article {
-      display: flex;
-      gap: 1rem;
-      align-items: center;
       background: #fff;
-      padding: 1rem;
+      padding: 1.5rem;
       border-radius: 10px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-    }
-
-    .press-article img {
-      width: 80px;
-      height: auto;
-      object-fit: contain;
     }
 
     .press-article h3 {
@@ -123,7 +233,7 @@ import { withBase } from '../utils/path';
     }
 
     .press-article p {
-      margin: 0.5rem 0 0;
+      margin-top: 0.5rem;
       color: #555;
     }
 
@@ -133,10 +243,77 @@ import { withBase } from '../utils/path';
     }
 
     @media (max-width: 768px) {
-      .press-article {
-        flex-direction: column;
-        align-items: flex-start;
+      .carousel-wrapper .nav {
+        display: none;
       }
+
+      .video-card {
+        flex: 0 0 280px;
+      }
+
+      .video-card iframe {
+        height: 180px;
+      }
+
+      .nav {
+        background: var(--accent-green);
+        color: white;
+        border: none;
+        font-size: 2rem;
+        border-radius: 50%;
+        width: 42px;
+        height: 42px;
+        cursor: pointer;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+        transition: background 0.2s ease, transform 0.2s ease;
+      }
+
+      .nav:hover {
+        background: var(--accent-green-hover);
+        transform: scale(1.1);
+      }
+
+      .nav:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+
     }
   </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const carousel = document.getElementById('video-carousel');
+    if (!carousel) return;
+
+    const leftBtn = document.querySelector('.nav.left');
+    const rightBtn = document.querySelector('.nav.right');
+
+    const scrollAmount = 400;
+
+    function updateNavButtons() {
+      const scrollLeft = carousel.scrollLeft;
+      const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
+
+      leftBtn.style.visibility = scrollLeft > 0 ? 'visible' : 'hidden';
+      rightBtn.style.visibility = scrollLeft < maxScrollLeft ? 'visible' : 'hidden';
+    }
+
+    leftBtn.addEventListener('click', () => {
+      carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    });
+
+    rightBtn.addEventListener('click', () => {
+      carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    });
+
+    carousel.addEventListener('scroll', updateNavButtons);
+    window.addEventListener('resize', updateNavButtons);
+
+    updateNavButtons();
+  });
+</script>
+
+
 </BaseLayout>

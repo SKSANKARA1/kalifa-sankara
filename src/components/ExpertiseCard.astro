@@ -9,32 +9,36 @@ const { title, icon, description } = Astro.props;
 
   <style>
     .card {
-      background-color: #1f1f1f;
-      border-radius: 12px;
-      padding: 1.5rem;
+      background: linear-gradient(145deg, #ffffff, #f3f7f9);
+      border: 1px solid #e0e5ea;
+      border-radius: 16px;
+      padding: 1.8rem 1.5rem;
       text-align: center;
-      box-shadow: 0 0 12px rgba(0, 255, 200, 0.05);
-      transition: transform 0.2s ease;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
     }
 
     .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 16px rgba(0, 255, 200, 0.15);
+      transform: translateY(-6px);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
     }
 
     .icon {
-      font-size: 2.5rem;
+      font-size: 2.6rem;
       margin-bottom: 0.8rem;
     }
 
     h3 {
       margin: 0.5rem 0;
-      color: var(--color-accent-green);
+      font-size: 1.2rem;
+      color: var(--accent-green);
+      font-family: 'Orbitron', sans-serif;
     }
 
     p {
-      font-size: 0.95rem;
-      color: var(--color-text);
+      font-size: 1rem;
+      color: #444;
+      line-height: 1.6;
     }
   </style>
 </div>

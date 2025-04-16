@@ -2,35 +2,35 @@
 const { title, description } = Astro.props;
 ---
 
-<div class="card">
+<article class="card">
   <h2>{title}</h2>
   <p>{description}</p>
-</div>
+</article>
 
 <style>
   .card {
-    background-color: #2a2a2a;
+    background: white;
+    color: #1a1a1a;
     padding: 1.5rem;
     border-radius: 12px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    transition: transform 0.2s ease;
-    border-left: 4px solid var(--color-accent);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
 
   .card:hover {
-    transform: translateY(-4px);
-    border-left-color: var(--color-secondary);
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
   }
 
-  h2 {
-    margin-top: 0;
-    color: var(--color-accent);
-    font-size: 1.3rem;
+  .card h2 {
+    font-size: 1.2rem;
+    color: var(--accent-green);
+    margin-bottom: 0.5rem;
   }
 
-  p {
-    color: var(--color-text);
+  .card p {
     font-size: 1rem;
-    line-height: 1.6;
+    line-height: 1.5;
+    color: #333;
   }
 </style>

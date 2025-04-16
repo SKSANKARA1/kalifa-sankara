@@ -4,53 +4,83 @@ import ExpertiseCard from '../components/ExpertiseCard.astro';
 ---
 
 <BaseLayout title="Expertises – Kalifa Sankara">
-  <h1>Domaines d'expertise</h1>
+  <section class="expertise-section">
+    <h1>Domaines d'expertise</h1>
 
-  <div class="grid">
-    <ExpertiseCard
-      title="Intelligence Artificielle"
-      icon="🤖"
-      description="Modélisation, machine learning et IA appliquée à la production et à la logistique agroalimentaire."
-    />
+    <div class="grid">
+      <ExpertiseCard
+        title="Intelligence Artificielle"
+        icon="🤖"
+        description="Modélisation, machine learning et IA appliquée à la production et à la logistique agroalimentaire."
+      />
 
-    <ExpertiseCard
-      title="Politiques agricoles"
-      icon="🌾"
-      description="Analyse de politiques publiques, souveraineté alimentaire et planification agricole stratégique."
-    />
+      <ExpertiseCard
+        title="Politiques agricoles"
+        icon="🌾"
+        description="Analyse de politiques publiques, souveraineté alimentaire et planification agricole stratégique."
+      />
 
-    <ExpertiseCard
-      title="Énergie durable"
-      icon="☀️"
-      description="Conception de systèmes solaires intelligents pour les zones rurales et isolées."
-    />
+      <ExpertiseCard
+        title="Énergie durable"
+        icon="☀️"
+        description="Conception de systèmes solaires intelligents pour les zones rurales et isolées."
+      />
 
-    <ExpertiseCard
-      title="Data Science"
-      icon="📊"
-      description="Analyse des données agricoles, prévisions climatiques et tableaux de bord décisionnels."
-    />
+      <ExpertiseCard
+        title="Data Science"
+        icon="📊"
+        description="Analyse des données agricoles, prévisions climatiques et tableaux de bord décisionnels."
+      />
 
-    <ExpertiseCard
-      title="Formation & jeunesse"
-      icon="🎓"
-      description="Conception de programmes pédagogiques autour des technologies et de la transition numérique."
-    />
-  </div>
+      <ExpertiseCard
+        title="Formation & jeunesse"
+        icon="🎓"
+        description="Conception de programmes pédagogiques autour des technologies et de la transition numérique."
+      />
+    </div>
+  </section>
 
   <style>
+    :root {
+      --color-bg: #f0f4f8;
+      --color-text: #1a1a1a;
+      --color-accent-blue: #4a90e2;
+      --color-accent-green: #0a806f;
+      --color-card-bg: #ffffff;
+    }
+
+    .expertise-section {
+      padding: 4rem 2rem;
+      background: linear-gradient(135deg, #e3eef5, #f8fbff);
+      color: var(--color-text);
+    }
+
     h1 {
-      font-size: 2.2rem;
-      margin-bottom: 2rem;
+      font-size: 2.4rem;
+      margin-bottom: 3rem;
       background: linear-gradient(90deg, var(--color-accent-blue), var(--color-accent-green));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      text-align: center;
+      font-family: 'Orbitron', sans-serif;
     }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 2rem;
     }
+
+    @media (max-width: 768px) {
+      .expertise-section {
+        padding: 2rem 1rem;
+      }
+
+      h1 {
+        font-size: 1.8rem;
+      }
+    }
+
+    
   </style>
 </BaseLayout>
