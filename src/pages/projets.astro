@@ -3,53 +3,84 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 ---
 
-<BaseLayout title="Projets – Kalifa Sankara">
+<BaseLayout title="Projets – Dr Sambo Kalifa Sankara">
   <section class="projects-section">
-    <h1>Projets</h1>
-    <p>Voici quelques-uns des projets portés ou encadrés par Dr. Kalifa Sankara :</p>
+    <h1>Parcours professionnel</h1>
+    <p>Voici un aperçu des expériences professionnelles de Kalifa Sankara :</p>
 
     <div class="grid">
       <ProjectCard
-        title="IA & Production Solaire"
-        description="Modélisation prédictive pour optimiser le stockage de l’énergie solaire en Afrique de l’Ouest."
+        title="Responsable BI – ENI"
+        description="Pilotage stratégique BI, mise en place de KPI, prévision budgétaire et gestion des coûts chez ENI France."
       />
 
       <ProjectCard
-        title="Agrodata Burkina"
-        description="Plateforme de suivi intelligent des cultures basée sur des données locales, climatiques et satellites."
+        title="Responsable BI – ENI (Ops)"
+        description="Coordination des projets data, reporting opérationnel, amélioration des parcours clients et montée en compétences internes."
       />
 
       <ProjectCard
-        title="Centre de Formation Jeunesse"
-        description="Développement d’un programme éducatif IA pour les jeunes dans les zones rurales africaines."
+        title="BI Project Manager – SMCP"
+        description="Supervision des évolutions technologiques BI pour Sandro, Maje, Claudie Pierlot et Fursac. Stack : Talend, Snowflake, Tableau."
+      />
+
+      <ProjectCard
+        title="Consultant BI – Nespresso"
+        description="Gestion fonctionnelle de l’outil ODAPICO. Refonte BI, Power BI, Python, SSIS, SSAS. Cadrage projet & maintenance."
+      />
+
+      <ProjectCard
+        title="Consultant SAP BODS – ADP"
+        description="Audit SAP BODS, recommandations techniques, guide de bonnes pratiques et accompagnement technique pour ADP Ingénierie."
+      />
+
+      <ProjectCard
+        title="Consultant Oracle BI – BNP"
+        description="Gestion de projets BI, accompagnement utilisateurs, reporting Oracle, modélisation ML. Stack : Datastage, Hyperion, QlikView."
+      />
+
+      <ProjectCard
+        title="Consultant Migration SAP – Guerbet"
+        description="Migration ERP vers SAP, analyse technique JD Edwards/Dynamics NAV, ETL : BODS, SSIS, intégration dans SAP."
+      />
+
+      <ProjectCard
+        title="Consultant SAP BODS – Center Parcs"
+        description="Analyse et traitement des écritures comptables issues des réservations. Intégration SAP via IDOCs. Oracle & BODS."
+      />
+
+      <ProjectCard
+        title="Voir plus d'expériences"
+        description="Consultez l'ensemble du parcours professionnel sur LinkedIn."
+        link="https://fr.linkedin.com/in/dr-sambo-kalifa-sankara-10767283"
+        buttonLabel="Voir sur LinkedIn"
       />
     </div>
   </section>
 
   <style>
     .projects-section {
-      padding: 2rem;
+      padding: 6rem;
       max-width: 1200px;
       margin: auto;
     }
 
     h1 {
-      color: var(--accent-green);
+      color: var(--accent-green-hover);
       font-family: 'Orbitron', sans-serif;
       font-size: 2rem;
       margin-bottom: 0.5rem;
     }
 
     p {
-      font-size: 1.1rem;
-      color: #333;
-      margin-bottom: 2rem;
+      font-size: 1.2rem;
+      color: #555;
     }
 
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
+      gap: 4rem;
     }
 
     @media (max-width: 600px) {

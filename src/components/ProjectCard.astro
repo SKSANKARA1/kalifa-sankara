@@ -1,10 +1,16 @@
 ---
-const { title, description } = Astro.props;
+const { title, description, link = null, buttonLabel = "En savoir plus" } = Astro.props;
 ---
 
 <article class="card">
   <h2>{title}</h2>
   <p>{description}</p>
+
+  {link && (
+    <a href={link} class="btn" target="_blank" rel="noopener noreferrer">
+      {buttonLabel}
+    </a>
+  )}
 </article>
 
 <style>
@@ -15,6 +21,10 @@ const { title, description } = Astro.props;
     border-radius: 12px;
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
   }
 
   .card:hover {
@@ -32,5 +42,24 @@ const { title, description } = Astro.props;
     font-size: 1rem;
     line-height: 1.5;
     color: #333;
+    flex: 1;
   }
+
+  .btn {
+    margin-top: 1rem;
+    align-self: flex-start;
+    padding: 0.5rem 1rem;
+    background-color: var(--accent-green);
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn:hover {
+    background-color: var(--accent-green-hover);
+  }
+
+
 </style>

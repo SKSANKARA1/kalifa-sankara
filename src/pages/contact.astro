@@ -2,63 +2,113 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="Contact – Kalifa Sankara">
-  <h1>Contact</h1>
-  <p>N'hésitez pas à me contacter pour une intervention, un partenariat ou toute autre demande.</p>
-  <p>Activer Formspree : Va sur https://formspree.io / Clique sur "Start for Free" / Crée un formulaire avec ton email / Copie l’URL du formulaire généré, et remplace celle dans action="..."</p>
-  
-  
-  
-  <form 
-    action="https://formspree.io/f/xwkgnrnp" 
-    method="POST" 
-    style="max-width: 500px; margin-top: 2rem;"
-  >
-    <label>
-      Nom :
-      <input type="text" name="name" required />
-    </label>
+<BaseLayout title="Contact – Dr Sambo Kalifa Sankara">
+  <section class="contact-section">
+    <h1>Me contacter</h1>
+    <p>N'hésitez pas à me solliciter pour une intervention, un partenariat ou toute autre demande professionnelle.</p>
 
-    <label>
-      Email :
-      <input type="email" name="_replyto" required />
-    </label>
+    <form 
+      action="https://formspree.io/f/xvgazeyn" 
+      method="POST"
+      class="contact-form"
+    >
+      <label>
+        Nom : <br /><br />
+        <input type="text" name="name" required />
+      </label>
 
-    <label>
-      Message :
-      <textarea name="message" rows="5" required></textarea>
-    </label>
+      <label>
+        Email : <br /><br />
+        <input type="email" name="_replyto" required />
+      </label>
 
-    <button type="submit">Envoyer</button>
-  </form>
+      <label>
+        Message : <br /><br />
+        <textarea name="message" rows="5" required></textarea>
+      </label>
+
+      <button type="submit">Envoyer</button>
+    </form>
+  </section>
 
   <style>
-    form {
+    .contact-section {
+      max-width: 900px;
+      margin: 5rem auto; /* Augmenté ici */
+      padding: 2rem;
+      background: linear-gradient(135deg, #e3eef5, #f8fbff);
+      border-radius: 16px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+      color: var(--text);
+      text-align: center;
+    }
+
+    h1 {
+      font-family: 'Orbitron', sans-serif;
+      color: var(--accent-green-hover);
+      font-size: 2rem;
+      margin-bottom: 1.2rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      color: #333;
+    }
+
+    .contact-form {
       display: flex;
       flex-direction: column;
-      gap: 1rem;
+      gap: 1.2rem;
+      text-align: left;
     }
+
     label {
-      display: flex;
-      flex-direction: column;
-      font-weight: bold;
-    }
-    input, textarea {
-      padding: 0.5rem;
-      border: 1px solid #ccc;
-      border-radius: 8px;
+      font-weight: 600;
       font-size: 1rem;
+      color: var(--text);
     }
-    button {
-      background-color: #222;
-      color: white;
+
+    input, textarea {
+      width: 100%;
       padding: 0.75rem;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background: white;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
     }
+
+    input:focus, textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 6px rgba(0, 224, 198, 0.3);
+      outline: none;
+    }
+
+    button {
+      background: #3f9db5; /* Nouvelle couleur ici */
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      align-self: flex-start;
+    }
+
     button:hover {
-      background-color: #444;
+      background: #303f9f; /* Teinte plus foncée au survol */
+    }
+
+    @media (max-width: 600px) {
+      .contact-section {
+        padding: 1.5rem;
+      }
+
+      h1 {
+        font-size: 1.6rem;
+      }
     }
   </style>
 </BaseLayout>

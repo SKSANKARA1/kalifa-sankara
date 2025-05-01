@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import ExpertiseCard from '../components/ExpertiseCard.astro';
 ---
 
-<BaseLayout title="Expertises – Kalifa Sankara">
+<BaseLayout title="Expertises – Dr Sambo Kalifa Sankara">
   <section class="expertise-section">
     <h1>Domaines d'expertise</h1>
 
@@ -13,30 +13,49 @@ import ExpertiseCard from '../components/ExpertiseCard.astro';
         icon="🤖"
         description="Modélisation, machine learning et IA appliquée à la production et à la logistique agroalimentaire."
       />
-
       <ExpertiseCard
         title="Politiques agricoles"
         icon="🌾"
         description="Analyse de politiques publiques, souveraineté alimentaire et planification agricole stratégique."
       />
-
       <ExpertiseCard
         title="Énergie durable"
         icon="☀️"
         description="Conception de systèmes solaires intelligents pour les zones rurales et isolées."
       />
-
       <ExpertiseCard
         title="Data Science"
         icon="📊"
         description="Analyse des données agricoles, prévisions climatiques et tableaux de bord décisionnels."
       />
-
       <ExpertiseCard
         title="Formation & jeunesse"
         icon="🎓"
-        description="Conception de programmes pédagogiques autour des technologies et de la transition numérique."
+        description="Programmes éducatifs autour des technologies numériques pour les jeunes ruraux."
       />
+      <ExpertiseCard
+        title="Gouvernance des données"
+        icon="🗂️"
+        description="Structuration, qualité, RGPD et supervision des flux de données métiers."
+      />
+      <ExpertiseCard
+        title="Cloud & Big Data"
+        icon="☁️"
+        description="Migration de pipelines vers Azure, traitements massifs, supervision et scalabilité."
+      />
+      <ExpertiseCard
+        title="Suivi de performance"
+        icon="📈"
+        description="Développement de KPI métiers et tableaux de bord interactifs pour décisionnel stratégique."
+      />
+
+      <!-- Dernier "cube" remplacé par un bouton LinkedIn -->
+      <div class="linkedin-card">
+        <h2>Voir plus sur LinkedIn</h2>
+        <a href="https://fr.linkedin.com/in/dr-sambo-kalifa-sankara-10767283" target="_blank" class="linkedin-btn">
+          🔗 Profil LinkedIn
+        </a>
+      </div>
     </div>
   </section>
 
@@ -56,31 +75,68 @@ import ExpertiseCard from '../components/ExpertiseCard.astro';
     }
 
     h1 {
-      font-size: 2.4rem;
-      margin-bottom: 3rem;
-      background: linear-gradient(90deg, var(--color-accent-blue), var(--color-accent-green));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-align: center;
+      color: var(--color-accent-green);
       font-family: 'Orbitron', sans-serif;
+      font-size: 2rem;
+      margin-bottom: 2.5rem;
+      text-align: center;
     }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 2rem;
+      max-width: 1500px;
+      margin: 0 auto;
     }
 
-    @media (max-width: 768px) {
-      .expertise-section {
-        padding: 2rem 1rem;
+    .linkedin-card {
+      background: var(--color-card-bg);
+      border-radius: 12px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      text-align: center;
+    }
+
+    .linkedin-card h2 {
+      font-size: 1.2rem;
+      color: var(--color-accent-green);
+      margin-bottom: 1rem;
+    }
+
+    .linkedin-btn {
+      background: var(--color-accent-green);
+      color: white;
+      text-decoration: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+
+    .linkedin-btn:hover {
+      background: var(--color-accent-blue);
+    }
+
+    @media (max-width: 1024px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .grid {
+        grid-template-columns: 1fr;
       }
 
       h1 {
         font-size: 1.8rem;
       }
     }
-
-    
   </style>
 </BaseLayout>

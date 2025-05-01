@@ -2,89 +2,159 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="Conférences – Kalifa Sankara">
-  <section class="timeline">
-    <h1>Conférences & Interventions</h1>
+<BaseLayout title="Conférences – Dr Sambo Kalifa Sankara">
+  <section class="conference-section">
+    <h1>Conférences</h1>
 
-    <div class="event">
-      <div class="date">Mars 2024</div>
-      <div class="content">
-        <h2>Forum Africain de l'IA – Dakar</h2>
-        <p>Intervention sur l’utilisation de l’intelligence artificielle dans l’optimisation des chaînes de production agricole en milieu rural.</p>
-      </div>
+    <div class="toggle-buttons">
+      <button id="pastBtn" class="active">Passées</button>
+      <button id="futureBtn">Futures</button>
     </div>
 
-    <div class="event">
-      <div class="date">Novembre 2023</div>
-      <div class="content">
-        <h2>Salon EuroAgroData – Paris</h2>
-        <p>Présentation d’un projet d’analyse prédictive des sols en partenariat avec l’INRAE et AgriLab.</p>
-      </div>
+    <div id="past" class="conference-list">
+      <ul>
+        <li>
+          <div class="conference-item">
+            <h3>Conférence sur l’IA à Ouagadougou – Novembre 2023</h3>
+            <p>Discussion sur l'éthique et la régulation de l'IA en Afrique de l'Ouest.</p>
+            <div class="video-wrapper">
+              <iframe src="https://www.youtube.com/embed/wIxQamWt3S8" title="YouTube video" allowfullscreen></iframe>
+            </div>
+        </li>
+        <li>
+          <div class="conference-item">
+            <h3>Conférence IA sur le combo IA et Énergie Solaire - SEINAR</h3>
+            <p>Intelligence Artificielle et Energie Solaire: quelle strategie gagnante ?</p>
+            <div class="video-wrapper">
+              <iframe src="https://www.youtube.com/embed/D_zjmIKHqaI" title="YouTube video" allowfullscreen></iframe>
+            </div>
+        </li>
+        <li><strong>Sommet Énergie et Innovation –</strong> Ouagadougou, octobre 2022</li>
+      </ul>
     </div>
 
-    <div class="event">
-      <div class="date">Juillet 2023</div>
-      <div class="content">
-        <h2>Université de Ouagadougou</h2>
-        <p>Conférence autour des enjeux de la souveraineté alimentaire et de la formation des jeunes scientifiques africains.</p>
-      </div>
+    <div id="future" class="conference-list hidden">
+      <ul>
+        <li><strong>Colloque Souveraineté Numérique –</strong> Tunis, septembre 2025</li>
+        <li><strong>Salon International de l’IA –</strong> Paris, décembre 2025</li>
+      </ul>
     </div>
   </section>
 
+  <script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", () => {
+      const pastBtn = document.getElementById("pastBtn");
+      const futureBtn = document.getElementById("futureBtn");
+      const past = document.getElementById("past");
+      const future = document.getElementById("future");
+
+      pastBtn.addEventListener("click", () => {
+        past.classList.remove("hidden");
+        future.classList.add("hidden");
+        pastBtn.classList.add("active");
+        futureBtn.classList.remove("active");
+      });
+
+      futureBtn.addEventListener("click", () => {
+        future.classList.remove("hidden");
+        past.classList.add("hidden");
+        futureBtn.classList.add("active");
+        pastBtn.classList.remove("active");
+      });
+    });
+  </script>
+
   <style>
-    .timeline {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 3rem 1rem;
+    .conference-section {
+      padding: 4rem 2rem;
+      max-width: 1300px;
+      margin: auto;
+      background: linear-gradient(145deg, #f2fbfb, #e3f1f1);
+      border-radius: 16px;
+      box-shadow: 0 0 24px rgba(0, 0, 0, 0.05);
     }
 
-    .timeline h1 {
-      font-size: 2.2rem;
-      margin-bottom: 2rem;
+    h1 {
+      font-family: 'Orbitron', sans-serif;
+      color: var(--accent-green-hover);
       text-align: center;
-      background: linear-gradient(90deg, var(--color-accent-green), var(--color-accent-blue));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .event {
-      display: flex;
-      flex-direction: row;
-      gap: 2rem;
+      font-size: 2.3rem;
       margin-bottom: 2.5rem;
-      align-items: flex-start;
-      border-left: 4px solid var(--color-accent-blue);
-      padding-left: 1.5rem;
     }
 
-    .date {
-      font-weight: bold;
-      color: var(--color-accent-red);
-      min-width: 120px;
+    /* h1 {
+      color: var(--accent-green-hover);
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    } */
+
+    .toggle-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
     }
 
-    .content h2 {
-      margin: 0 0 0.5rem;
-      font-size: 1.3rem;
-      color: var(--color-accent-green);
+    .toggle-buttons button {
+      background: linear-gradient(to right, #9ee7e1, #70c1b3);
+      border: none;
+      padding: 0.9rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
     }
 
-    .content p {
+    .toggle-buttons button.active,
+    .toggle-buttons button:hover {
+      background: linear-gradient(to right, #70c1b3, #04ad5b);
+      transform: scale(1.05);
+    }
+
+    .conference-list {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #1a1a1a;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
       margin: 0;
-      line-height: 1.5;
+    }
+
+    li {
+      background: #ffffff;
+      padding: 1.2rem 1.5rem;
+      border-radius: 10px;
+      margin-bottom: 1.2rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
     }
 
     @media (max-width: 768px) {
-      .event {
-        flex-direction: column;
-        border-left: none;
-        border-top: 2px solid var(--color-accent-blue);
-        padding-left: 0;
-        padding-top: 1rem;
+      .conference-section {
+        padding: 2rem 1rem;
       }
 
-      .date {
-        margin-bottom: 0.5rem;
+      h1 {
+        font-size: 2rem;
+      }
+
+      .toggle-buttons {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .toggle-buttons button {
+        width: 100%;
       }
     }
   </style>

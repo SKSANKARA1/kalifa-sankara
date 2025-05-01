@@ -8,7 +8,7 @@ import type { CollectionEntry } from 'astro:content';
 const actus = await getCollection('actus');
 ---
 
-<BaseLayout title="Accueil – Kalifa Sankara">
+<BaseLayout title="Accueil – Dr Sambo Kalifa Sankara">
   <section class="banner">
     <div class="banner-content">
       <div class="text">
@@ -33,9 +33,9 @@ const actus = await getCollection('actus');
       {actus.map((actu: CollectionEntry<'actus'>) => (
         <article class="news-card">
           <div class="news-author">
-            <img src={withBase('images/pp_kalifa_1.PNG')} alt="Kalifa Sankara" />
+            <img src={withBase('images/pp_kalifa_1.PNG')} alt="Dr Sambo Kalifa Sankara" />
             <div>
-              <strong>Kalifa Sankara</strong> · <span>{actu.data.date}</span>
+              <strong>Dr Sambo Kalifa Sankara</strong> · <span>{actu.data.date}</span>
             </div>
           </div>
           {actu.data.image && (

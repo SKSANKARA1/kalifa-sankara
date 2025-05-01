@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { withBase } from '../utils/path';
 ---
 
-<BaseLayout title="Interventions médiatiques – Kalifa Sankara">
+<BaseLayout title="Interventions médiatiques - Dr Sambo Kalifa Sankara">
   <section class="media-hero">
     <h1>Interventions dans les médias</h1>
     <p>Retrouvez ici les apparitions de Kalifa Sankara dans les médias TV et presse écrite.</p>
@@ -18,32 +18,25 @@ import { withBase } from '../utils/path';
       <div class="carousel" id="video-carousel">
         <div class="video-card">
           <iframe src="https://www.youtube.com/embed/nLSJ-stTkyQ" title="RTB – Sur la brèche" allowfullscreen></iframe>
-          <p>RTB – Sur la brèche</p>
+          <p>Passage sur la RTB – Sur la brèche</p>
         </div>
         <div class="video-card">
           <iframe src="https://www.youtube.com/embed/wIxQamWt3S8" title="BF1 – Surface de vérité" allowfullscreen></iframe>
-          <p>BF1 – Surface de vérité</p>
-        </div>
-        <div class="video-card">
-          <iframe src="https://www.youtube.com/embed/wIxQamWt3S8" title="Conférence IA – Ouagadougou" allowfullscreen></iframe>
-          <p>Conférence IA – Ouagadougou</p>
+          <p>Passage sur BF1 – Surface de vérité</p>
         </div>
         <div class="video-card">
           <iframe src="https://www.youtube.com/embed/dsPFJsRN_FY" title="3Tv – L’invité du Dej matinal" allowfullscreen></iframe>
-          <p>3Tv – L’invité du Dej matinal infos</p>
+          <p>Passage sur 3Tv – L’invité du Dej matinal infos</p>
         </div>
         <div class="video-card">
           <iframe src="https://www.youtube.com/embed/7WjdZlghqDo" title="3Tv – Le tribunal de l’actualité" allowfullscreen></iframe>
-          <p>3Tv – Le tribunal de l’actualité</p>
-        </div>
-        <div class="video-card">
-          <iframe src="https://www.youtube.com/embed/D_zjmIKHqaI" title="Conférence SEINAR" allowfullscreen></iframe>
-          <p>SEINAR – IA & Énergie Solaire</p>
+          <p>Passage sur 3Tv – Le tribunal de l’actualité </p>
         </div>
         <div class="video-card">
           <iframe src="https://www.youtube.com/embed/jHXNjvhT_08" title="3TV – Journal du dimanche" allowfullscreen></iframe>
-          <p>3TV – Journal du dimanche</p>
+          <p>Passage sur 3TV – Journal du dimanche</p>
         </div>
+
       </div>
 
       <button class="nav right" onclick="scrollCarousel(1)">›</button>
@@ -56,7 +49,7 @@ import { withBase } from '../utils/path';
   </section>
 
   <section class="media-section">
-    <h2>📰 Presse</h2>
+    <h2>📰 La presse écrite</h2>
     <div class="press-list">
       <article class="press-article">
         <div>
@@ -125,8 +118,10 @@ import { withBase } from '../utils/path';
     }
 
     .media-hero h1 {
-      font-size: 2.8rem;
-      margin-bottom: 1rem;
+      color: var(--accent-green-hover);
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
     }
 
     .media-hero p {
