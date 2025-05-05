@@ -1,8 +1,16 @@
 ---
-const { title, description, link = null, buttonLabel = "En savoir plus" } = Astro.props;
+const { title, description, link = null, buttonLabel = "En savoir plus", logo = null } = Astro.props;
 ---
 
 <article class="card">
+  {logo && (
+    <img
+      src={logo}
+      alt={`Logo ${title}`}
+      class="card__logo"
+      loading="lazy"
+    />
+  )}
   <h2>{title}</h2>
   <p>{description}</p>
 
@@ -23,8 +31,9 @@ const { title, description, link = null, buttonLabel = "En savoir plus" } = Astr
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     height: 100%;
+    gap: 1rem;
   }
 
   .card:hover {
@@ -32,10 +41,17 @@ const { title, description, link = null, buttonLabel = "En savoir plus" } = Astr
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
   }
 
+  .card__logo {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    align-self: flex-start;
+  }
+
   .card h2 {
     font-size: 1.2rem;
     color: var(--accent-green);
-    margin-bottom: 0.5rem;
+    margin: 0;
   }
 
   .card p {
@@ -46,7 +62,7 @@ const { title, description, link = null, buttonLabel = "En savoir plus" } = Astr
   }
 
   .btn {
-    margin-top: 1rem;
+    margin-top: auto;
     align-self: flex-start;
     padding: 0.5rem 1rem;
     background-color: var(--accent-green);
@@ -60,6 +76,4 @@ const { title, description, link = null, buttonLabel = "En savoir plus" } = Astr
   .btn:hover {
     background-color: var(--accent-green-hover);
   }
-
-
 </style>
