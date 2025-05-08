@@ -1,5 +1,5 @@
 ---
-const { title = " Dr Sambo Kalifa Sankara" } = Astro.props;
+const { title = "Dr Sambo Kalifa Sankara" } = Astro.props;
 ---
 
 <html lang="fr">
@@ -7,7 +7,10 @@ const { title = " Dr Sambo Kalifa Sankara" } = Astro.props;
     <meta charset="UTF-8" />
     <title>{title}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Orbitron:wght@600&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Orbitron:wght@600&display=swap"
+      rel="stylesheet"
+    />
 
     <style>
       :root {
@@ -19,19 +22,14 @@ const { title = " Dr Sambo Kalifa Sankara" } = Astro.props;
         --accent-green-hover: #17c8a3;
       }
 
-      html, body {
+      html,
+      body {
         margin: 0;
         padding: 0;
         min-height: 100%;
         background: linear-gradient(135deg, var(--bg-main), var(--bg-alt));
         color: var(--text-main);
         font-family: 'Inter', sans-serif;
-      }
-
-      @keyframes gradientLoop {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
       }
 
       .wrapper {
@@ -65,15 +63,13 @@ const { title = " Dr Sambo Kalifa Sankara" } = Astro.props;
         display: flex;
         gap: 1.5rem;
       }
-
-      nav a {
-        text-decoration: none;
-        color: #0a806f;
-        font-weight: 600;
+      nav.desktop-nav a {
         position: relative;
+        text-decoration: none;
+        color: var(--accent-green);
+        font-weight: 600;
       }
-
-      nav a::after {
+      nav.desktop-nav a::after {
         content: "";
         position: absolute;
         width: 0;
@@ -83,8 +79,7 @@ const { title = " Dr Sambo Kalifa Sankara" } = Astro.props;
         background: var(--accent-green);
         transition: width 0.3s ease;
       }
-
-      nav a:hover::after {
+      nav.desktop-nav a:hover::after {
         width: 100%;
       }
 
@@ -108,14 +103,14 @@ const { title = " Dr Sambo Kalifa Sankara" } = Astro.props;
         width: 100%;
         z-index: 9;
       }
-
-      .mobile-nav a {
-        padding: 1rem 2rem;
-        border-bottom: 1px solid #333;
-      }
-
       .mobile-nav.open {
         display: flex;
+      }
+      .mobile-nav a {
+        padding: 1rem 2rem;
+        text-decoration: none;
+        color: var(--accent-green);
+        border-bottom: 1px solid #c3ccd5;
       }
 
       main {
@@ -123,24 +118,39 @@ const { title = " Dr Sambo Kalifa Sankara" } = Astro.props;
       }
 
       footer {
-        background: linear-gradient(135deg, #e5ecf2, #f8fbfd); /* doux, élégant */
-        color: #1a1a1a;
+        background: linear-gradient(135deg, #e5ecf2, #f8fbfd);
         padding: 2rem 1rem;
-        text-align: center;
-        font-size: 0.95rem;
-        border-top: 1px solid #c3ccd5;
         margin-top: auto;
         width: 100%;
+        box-sizing: border-box;
       }
-
-      footer a {
-        color: var(--accent-green);
-        font-weight: 600;
+      .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+      .footer-content p {
+        margin: 0;
+        color: #555;
+        font-size: 0.9rem;
+      }
+      .btn-cv {
+        display: inline-block;
+        padding: 0.75rem 1.5rem;
+        background: #4e655bc2;
+        color: white;
         text-decoration: none;
+        font-weight: 600;
+        border-radius: 8px;
+        transition: background 0.3s ease, transform 0.2s ease;
       }
-
-      footer a:hover {
-        color: var(--accent-green-light);
+      .btn-cv:hover {
+        background: var(--accent-green-hover);
+        transform: translateY(-2px);
       }
 
       @media (max-width: 768px) {
@@ -149,6 +159,13 @@ const { title = " Dr Sambo Kalifa Sankara" } = Astro.props;
         }
         .burger {
           display: block;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .footer-content {
+          flex-direction: column;
+          text-align: center;
         }
       }
     </style>
@@ -162,20 +179,24 @@ const { title = " Dr Sambo Kalifa Sankara" } = Astro.props;
           <a href="/kalifa-sankara/">Accueil</a>
           <a href="/kalifa-sankara/presentation">Biographie</a>
           <a href="/kalifa-sankara/projets">Projets</a>
-          <a href="/kalifa-sankara/interventions">TV & Presse</a>
           <a href="/kalifa-sankara/expertises">Expertises</a>
           <a href="/kalifa-sankara/conferences">Conférences</a>
+          <a href="/kalifa-sankara/interventions">TV & Presse</a>
           <a href="/kalifa-sankara/contact">Contact</a>
         </nav>
-
-        <button class="burger" onclick="document.getElementById('mobile-nav').classList.toggle('open')">☰</button>
+        <button
+          class="burger"
+          onclick="document.getElementById('mobile-nav').classList.toggle('open')"
+        >
+          ☰
+        </button>
         <nav class="mobile-nav" id="mobile-nav">
           <a href="/kalifa-sankara/">Accueil</a>
           <a href="/kalifa-sankara/presentation">Biographie</a>
           <a href="/kalifa-sankara/projets">Projets</a>
-          <a href="/kalifa-sankara/interventions">TV & Presse</a>
           <a href="/kalifa-sankara/expertises">Expertises</a>
           <a href="/kalifa-sankara/conferences">Conférences</a>
+          <a href="/kalifa-sankara/interventions">TV & Presse</a>
           <a href="/kalifa-sankara/contact">Contact</a>
         </nav>
       </header>
@@ -185,10 +206,17 @@ const { title = " Dr Sambo Kalifa Sankara" } = Astro.props;
       </main>
 
       <footer>
-        <p>&copy; {new Date().getFullYear()} Dr Sambo Kalifa Sankara — 
-          <a href="https://www.linkedin.com/in/kalifa-sankara" target="_blank">LinkedIn</a> | 
-          <a href="/kalifa-sankara/cv/kalifa_sankara_cv.pdf">CV</a>
-        </p>
+        <div class="footer-content">
+          <p>© {new Date().getFullYear()} Dr Sambo Kalifa Sankara</p>
+          <a
+            href="/kalifa-sankara/cv/kalifa_sankara_cv.pdf"
+            class="btn-cv"
+            target="_blank"
+            rel="noopener"
+          >
+            Télécharger mon CV
+          </a>
+        </div>
       </footer>
     </div>
   </body>

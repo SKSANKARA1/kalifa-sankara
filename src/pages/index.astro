@@ -4,7 +4,6 @@ import { withBase } from '../utils/path';
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 
-
 const actus = await getCollection('actus');
 ---
 
@@ -22,11 +21,12 @@ const actus = await getCollection('actus');
     <aside class="left-column">
       <div class="login-card">
         <h3>Me retrouver sur les réseaux</h3>
-        <p>Rejoignez-moi sur LinkedIn et Facebook pour découvrir mes projets, conférences et réflexions autour de l’IA et l’agriculture durable.</p>
-        <a href="https://fr.linkedin.com/in/dr-sambo-kalifa-sankara-10767283" class="btn linkedin" target="_blank">Voir LinkedIn</a>
-        <a href="https://www.facebook.com/SamboKalifaSankara/" class="btn facebook" target="_blank">Voir Facebook</a>
+        <p>Rejoignez-moi sur LinkedIn, Facebook, X et YouTube pour découvrir mes projets, conférences et réflexions autour de l’IA et l’agriculture durable.</p>
+        <a href="https://fr.linkedin.com/in/dr-sambo-kalifa-sankara-10767283" class="btn linkedin" target="_blank" rel="noopener noreferrer">Voir LinkedIn</a>
+        <a href="https://www.facebook.com/SamboKalifaSankara/" class="btn facebook" target="_blank" rel="noopener noreferrer">Voir Facebook</a>
+        <a href="https://x.com/KalifaSamb55036" class="btn x" target="_blank" rel="noopener noreferrer">Voir X</a>
+        <a href="https://www.youtube.com/@sambokalifasankara7893" class="btn youtube" target="_blank" rel="noopener noreferrer">Voir YouTube</a>
       </div>
-      
     </aside>
 
     <main class="content-column">
@@ -64,6 +64,8 @@ const actus = await getCollection('actus');
       --blue: #1877f2;
       --linkedin: #0077b5;
       --gold: #f5c518;
+      --x-color: #000000d2;
+      --youtube-color: #FF0000;
     }
 
     body {
@@ -164,6 +166,14 @@ const actus = await getCollection('actus');
 
     .btn.facebook {
       background: var(--blue);
+    }
+
+    .btn.x {
+      background: var(--x-color);
+    }
+
+    .btn.youtube {
+      background: var(--youtube-color);
     }
 
     .btn.gold {
