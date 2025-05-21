@@ -42,7 +42,11 @@ const actus = await getCollection('actus');
             <img class="actu-image" src={withBase(actu.data.image)} alt={actu.data.titre} />
           )}
           <h3>{actu.data.titre}</h3>
-          <p>{actu.data.resume}</p>
+          {/* <p>{actu.data.resume}</p> */}
+          <div class="news-content">
+            <p class="summary collapsed">{actu.data.resume}</p>
+            <button class="toggle-btn" onclick="toggleContent(this)">Voir plus</button>
+          </div>
         </article>
       ))}
     </main>
@@ -131,6 +135,30 @@ const actus = await getCollection('actus');
       margin: auto;
       background: var(--bg-light);
     }
+
+    /* .left-column,
+    .right-column {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    } */
+
+    /* .left-column,
+    .right-column {
+      position: sticky;
+      top: 2rem; 
+      align-self: start;
+    } */
+
+    /* .left-column,
+    .right-column {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      position: sticky;
+      top: 2rem;
+      align-self: start;
+    } */
 
     .left-column,
     .right-column {
@@ -243,5 +271,51 @@ const actus = await getCollection('actus');
         text-align: center;
       }
     }
+
+    @media (min-width: 1025px) {
+      .left-column .login-card {
+        position: sticky;
+        top: 2rem;
+      }
+
+      .right-column .sponsor-card {
+        position: sticky;
+        top: 2rem;
+      }
+    }
+
+    .news-content {
+      position: relative;
+    }
+
+    .summary {
+      max-height: 6.5em; /* ≈ 4 lignes */
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .summary.expanded {
+      max-height: 1000px; /* suffisamment grand pour montrer tout le texte */
+    }
+
+    .toggle-btn {
+      background: none;
+      border: none;
+      color: var(--blue);
+      cursor: pointer;
+      padding: 0.5rem 0;
+      font-weight: bold;
+      text-align: left;
+    }
+
+
+
   </style>
+      <script is:inline>
+        function toggleContent(button) {
+          const summary = button.previousElementSibling;
+          const isExpanded = summary.classList.toggle('expanded');
+          button.textContent = isExpanded ? 'Voir moins' : 'Voir plus';
+        }
+      </script>
 </BaseLayout>
