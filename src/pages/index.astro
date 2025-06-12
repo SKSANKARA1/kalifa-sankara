@@ -4,7 +4,14 @@ import { withBase } from '../utils/path';
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 
-const actus = await getCollection('actus');
+const actusRaw = await getCollection('actus');
+// On ajoute la méthode render() pour pouvoir utiliser le contenu HTML du markdown
+const actus = await Promise.all(
+  actusRaw.map(async (entry) => {
+    const { Content } = await entry.render();
+    return { ...entry, Content };
+  })
+);
 ---
 
 <BaseLayout title="Accueil – Dr Sambo Kalifa Sankara">
@@ -30,7 +37,7 @@ const actus = await getCollection('actus');
     </aside>
 
     <main class="content-column">
-      {actus.map((actu: CollectionEntry<'actus'>) => (
+      {actus.map((actu) => (
         <article class="news-card">
           <div class="news-author">
             <img src={withBase('images/pp_kalifa_1.PNG')} alt="Dr Sambo Kalifa Sankara" />
@@ -42,14 +49,16 @@ const actus = await getCollection('actus');
             <img class="actu-image" src={withBase(actu.data.image)} alt={actu.data.titre} />
           )}
           <h3>{actu.data.titre}</h3>
-          {/* <p>{actu.data.resume}</p> */}
           <div class="news-content">
-            <p class="summary collapsed">{actu.data.resume}</p>
+            <div class="summary collapsed">
+              <actu.Content />
+            </div>
             <button class="toggle-btn" onclick="toggleContent(this)">Voir plus</button>
           </div>
         </article>
       ))}
     </main>
+
 
     <aside class="right-column">
       <div class="sponsor-card">
