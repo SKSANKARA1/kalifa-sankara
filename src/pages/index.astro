@@ -28,7 +28,7 @@ const actus = await Promise.all(
     <aside class="left-column">
       <div class="login-card">
         <h3>Me retrouver sur les réseaux</h3>
-        <p>Rejoignez-moi sur LinkedIn, Facebook, X et YouTube pour découvrir mes projets, conférences et réflexions autour de l’IA et l’agriculture durable.</p>
+        <p>Rejoignez-moi sur LinkedIn, Facebook, X et YouTube pour découvrir mes projets, conférences et réflexions.</p>
         <a href="https://fr.linkedin.com/in/dr-sambo-kalifa-sankara-10767283" class="btn linkedin" target="_blank" rel="noopener noreferrer">Voir LinkedIn</a>
         <a href="https://www.facebook.com/SamboKalifaSankara/" class="btn facebook" target="_blank" rel="noopener noreferrer">Voir Facebook</a>
         <a href="https://x.com/KalifaSamb55036" class="btn x" target="_blank" rel="noopener noreferrer">Voir X</a>
@@ -189,7 +189,7 @@ const actus = await Promise.all(
     .btn {
       display: block;
       margin-top: 1rem;
-      padding: 0.7rem;
+      padding: 1rem;
       border-radius: 8px;
       font-weight: bold;
       text-align: center;
@@ -211,6 +211,7 @@ const actus = await Promise.all(
 
     .btn.youtube {
       background: var(--youtube-color);
+      margin-bottom: 10rem; /* pour la creation d'espace entre bouton youtube et le bas de la section */
     }
 
     .btn.gold {
