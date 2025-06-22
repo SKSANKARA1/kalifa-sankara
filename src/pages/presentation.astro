@@ -34,12 +34,16 @@ import { withBase } from '../utils/path';
         <p>
           Afro-optimiste, Kalifa s’investit aussi dans la société civile à travers l’<em>Association africaine pour un retour à l’authenticité</em> et le <em>Cercle de réflexion – La cordée du Faso</em>. Pour lui, « l’amitié est une trace dans le sable. Si tu cesses de la refaire, elle disparaît » – un proverbe burkinabè qu’il incarne dans son engagement.
         </p>
+
+        <!-- Bouton de téléchargement -->
+        <a href="/cv/bio_kalifa.pdf" class="btn-bio" target="_blank" rel="noopener">
+          📄 Télécharger la biographie
+        </a>
       </div>
     </div>
   </section>
 
   <style>
-
     :root {
       --bg-light: var(--bg-alt);
       --text-dark: var(--text-main);
@@ -87,6 +91,23 @@ import { withBase } from '../utils/path';
       text-align: justify;
     }
 
+    .btn-bio {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.75rem 1.25rem;
+      background-color: var(--accent-green-hover);
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 8px;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .btn-bio:hover {
+      background-color: var(--accent-green);
+      transform: translateY(-2px);
+    }
+
     @media (max-width: 768px) {
       .bio {
         grid-template-columns: 1fr;
@@ -102,8 +123,5 @@ import { withBase } from '../utils/path';
         margin-top: 1rem;
       }
     }
-
-    
   </style>
 </BaseLayout>
-
