@@ -1,0 +1,217 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const baseUrl = import.meta.env.SITE || 'https://ton-domaine.com/cqfs';
+const articles = await getCollection('cqfs');
+const iaArticles = articles.filter(a => a.data.rubrique === 'IA');
+const politiqueArticles = articles.filter(a => a.data.rubrique === 'Politique');
+---
+
+<BaseLayout title="CQFS – Dr Sambo Kalifa Sankara">
+  <section class="cqfs-section">
+    <h1>Ce Qu’il Faut Savoir</h1>
+
+    <div class="toggle-buttons">
+      <button id="iaBtn" class="active">IA & Technologie</button>
+      <button id="politiqueBtn">Politique & Sécurité</button>
+    </div>
+
+    <!-- IA -->
+    <div id="ia" class="cqfs-list">
+      <ul>
+        {iaArticles.map(({ data, slug }) => (
+          <li class="cqfs-item" id={slug}>
+            <h3>{data.title}</h3>
+            <p>{data.description}</p>
+            <div class="share-section">
+              <span class="share-label">🔗 Partager cette page :</span>
+              <div class="share-buttons">
+                <a class="btn-share fb" href="https://www.facebook.com/sharer/sharer.php?u=https://ton-domaine.com/cqfs" target="_blank" rel="noopener">📘 Facebook</a>
+                <a class="btn-share wa" href="https://api.whatsapp.com/send?text=https://ton-domaine.com/cqfs" target="_blank" rel="noopener">💬 WhatsApp</a>
+              </div>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <!-- Politique -->
+    <div id="politique" class="cqfs-list hidden">
+      <ul>
+        {politiqueArticles.map(({ data, slug }) => (
+          <li class="cqfs-item" id={slug}>
+            <h3>{data.title}</h3>
+            <p>{data.description}</p>
+            <div class="share-section">
+              <span class="share-label">🔗 Partager cette page :</span>
+              <div class="share-buttons">
+                <a class="btn-share fb" href="https://www.facebook.com/sharer/sharer.php?u=https://ton-domaine.com/cqfs" target="_blank" rel="noopener">📘 Facebook</a>
+                <a class="btn-share wa" href="https://api.whatsapp.com/send?text=https://ton-domaine.com/cqfs" target="_blank" rel="noopener">💬 WhatsApp</a>
+              </div>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const iaBtn = document.getElementById("iaBtn");
+      const politiqueBtn = document.getElementById("politiqueBtn");
+      const ia = document.getElementById("ia");
+      const politique = document.getElementById("politique");
+
+      iaBtn.addEventListener("click", () => {
+        ia.classList.remove("hidden");
+        politique.classList.add("hidden");
+        iaBtn.classList.add("active");
+        politiqueBtn.classList.remove("active");
+      });
+
+      politiqueBtn.addEventListener("click", () => {
+        politique.classList.remove("hidden");
+        ia.classList.add("hidden");
+        politiqueBtn.classList.add("active");
+        iaBtn.classList.remove("active");
+      });
+    });
+  </script>
+
+  <style>
+    .cqfs-section {
+      padding: 4rem 2rem;
+      max-width: 1300px;
+      margin: auto;
+      background: #f7fdfd;
+      border-radius: 16px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.3rem;
+      font-family: 'Orbitron', sans-serif;
+      color: #0c6b5f;
+      margin-bottom: 2rem;
+    }
+
+    .toggle-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .toggle-buttons button {
+      background: linear-gradient(to right, #a8edea, #fed6e3);
+      border: none;
+      padding: 0.9rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: #1c1c1c;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .toggle-buttons button.active,
+    .toggle-buttons button:hover {
+      background: linear-gradient(to right, #70c1b3, #04ad5b);
+      color: white;
+    }
+
+    .cqfs-list {
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .cqfs-item {
+      background: white;
+      padding: 1.2rem 1.5rem;
+      border-radius: 10px;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    }
+
+    .share-section {
+      margin-top: 1.2rem;
+      padding-top: 0.8rem;
+      border-top: 1px solid #e3e3e3;
+    }
+
+    .share-label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: #0c6b5f;
+      font-size: 0.95rem;
+    }
+
+    .share-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .btn-share {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      border-radius: 30px;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: background 0.3s ease;
+      color: white;
+    }
+
+    .btn-share.fb {
+      background: #3b5998;
+    }
+
+    .btn-share.fb:hover {
+      background: #2d4373;
+    }
+
+    .btn-share.wa {
+      background: #25d366;
+    }
+
+    .btn-share.wa:hover {
+      background: #1da955;
+    }
+
+    @media (max-width: 768px) {
+      .toggle-buttons {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .toggle-buttons button {
+        width: 100%;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .share-buttons {
+        flex-direction: column;
+      }
+
+      .btn-share {
+        justify-content: center;
+        width: 100%;
+      }
+    }
+  </style>
+</BaseLayout>
