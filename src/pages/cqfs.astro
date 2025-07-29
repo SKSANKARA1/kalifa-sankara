@@ -1,14 +1,31 @@
+
+
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
-const baseUrl = import.meta.env.SITE || 'https://ton-domaine.com/cqfs';
+const baseUrl = import.meta.env.SITE || 'https://sambokalifasankara.com/cqfs';
 const articles = await getCollection('cqfs');
 const iaArticles = articles.filter(a => a.data.rubrique === 'IA');
 const politiqueArticles = articles.filter(a => a.data.rubrique === 'Politique');
 ---
 
 <BaseLayout title="CQFS – Dr Sambo Kalifa Sankara">
+  <head>
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="Ce Qu’il Faut Savoir – Dr Kalifa Sankara" />
+    <meta property="og:description" content="Explorez les réflexions de Dr Kalifa Sankara sur l’IA, la technologie, la sécurité et la politique en Afrique." />
+    <meta property="og:image" content="https://sambokalifasankara.com/images/og-cqfs.jpg" />
+    <meta property="og:url" content="https://sambokalifasankara.com/cqfs" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Ce Qu’il Faut Savoir – Dr Kalifa Sankara" />
+    <meta name="twitter:description" content="Réflexions du Dr Sankara sur l’intelligence artificielle, la politique, et la sécurité." />
+    <meta name="twitter:image" content="https://sambokalifasankara.com/images/og-cqfs.jpg" />
+  </head>
+
   <section class="cqfs-section">
     <h1>Ce Qu’il Faut Savoir</h1>
 
@@ -27,8 +44,8 @@ const politiqueArticles = articles.filter(a => a.data.rubrique === 'Politique');
             <div class="share-section">
               <span class="share-label">🔗 Partager cette page :</span>
               <div class="share-buttons">
-                <a class="btn-share fb" href="https://www.facebook.com/sharer/sharer.php?u=https://sambokalifasankara.com/cqfs" target="_blank" rel="noopener">📘 Facebook</a>
-                <a class="btn-share wa" href="https://api.whatsapp.com/send?text=https://sambokalifasankara.com/cqfs" target="_blank" rel="noopener">💬 WhatsApp</a>
+                <a class="btn-share fb" href={`https://www.facebook.com/sharer/sharer.php?u=${baseUrl}`} target="_blank" rel="noopener">📘 Facebook</a>
+                <a class="btn-share wa" href={`https://api.whatsapp.com/send?text=${baseUrl}`} target="_blank" rel="noopener">💬 WhatsApp</a>
               </div>
             </div>
           </li>
@@ -46,8 +63,8 @@ const politiqueArticles = articles.filter(a => a.data.rubrique === 'Politique');
             <div class="share-section">
               <span class="share-label">🔗 Partager cette page :</span>
               <div class="share-buttons">
-                <a class="btn-share fb" href="https://www.facebook.com/sharer/sharer.php?u=https://sambokalifasankara.com/cqfs" target="_blank" rel="noopener">📘 Facebook</a>
-                <a class="btn-share wa" href="https://api.whatsapp.com/send?text=https://sambokalifasankara.com/cqfs" target="_blank" rel="noopener">💬 WhatsApp</a>
+                <a class="btn-share fb" href={`https://www.facebook.com/sharer/sharer.php?u=${baseUrl}`} target="_blank" rel="noopener">📘 Facebook</a>
+                <a class="btn-share wa" href={`https://api.whatsapp.com/send?text=${baseUrl}`} target="_blank" rel="noopener">💬 WhatsApp</a>
               </div>
             </div>
           </li>
