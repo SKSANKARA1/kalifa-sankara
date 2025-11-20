@@ -80,27 +80,51 @@ const politiqueArticles = articles.filter(a => a.data.rubrique === 'Politique');
   </section>
 
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const iaBtn = document.getElementById("iaBtn");
-      const politiqueBtn = document.getElementById("politiqueBtn");
-      const ia = document.getElementById("ia");
-      const politique = document.getElementById("politique");
+  document.addEventListener("DOMContentLoaded", () => {
+    const iaBtn = document.getElementById("iaBtn");
+    const politiqueBtn = document.getElementById("politiqueBtn");
+    const ia = document.getElementById("ia");
+    const politique = document.getElementById("politique");
 
-      iaBtn.addEventListener("click", () => {
-        ia.classList.remove("hidden");
-        politique.classList.add("hidden");
-        iaBtn.classList.add("active");
-        politiqueBtn.classList.remove("active");
-      });
+    function showIA() {
+      ia.classList.remove("hidden");
+      politique.classList.add("hidden");
+      iaBtn.classList.add("active");
+      politiqueBtn.classList.remove("active");
+    }
 
-      politiqueBtn.addEventListener("click", () => {
-        politique.classList.remove("hidden");
-        ia.classList.add("hidden");
-        politiqueBtn.classList.add("active");
-        iaBtn.classList.remove("active");
-      });
-    });
-  </script>
+    function showPolitique() {
+      politique.classList.remove("hidden");
+      ia.classList.add("hidden");
+      politiqueBtn.classList.add("active");
+      iaBtn.classList.remove("active");
+    }
+
+    iaBtn.addEventListener("click", showIA);
+    politiqueBtn.addEventListener("click", showPolitique);
+
+    // 🧠 Nouvelle logique : activer la bonne section selon le hash
+    const hash = window.location.hash ? window.location.hash.substring(1) : null;
+
+    if (hash) {
+      const target = document.getElementById(hash);
+      if (target) {
+        // Est-ce que l'article est dans la section Politique ?
+        if (politique.contains(target)) {
+          showPolitique();
+        } else if (ia.contains(target)) {
+          showIA(); // facultatif, c'est déjà le cas par défaut
+        }
+
+        // Re-scroller proprement sur l'article après avoir affiché la bonne section
+        setTimeout(() => {
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 100);
+      }
+    }
+  });
+</script>
+
 
   <style>
     .cqfs-section {
