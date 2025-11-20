@@ -1,10 +1,11 @@
-
-
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
-const baseUrl = import.meta.env.SITE || 'https://sambokalifasankara.com/cqfs';
+// SITE doit être défini dans astro.config.mjs (site: 'https://sambokalifasankara.com')
+const site = import.meta.env.SITE || 'https://sambokalifasankara.com';
+const pageUrl = new URL('/cqfs', site).toString();
+
 const articles = await getCollection('cqfs');
 const iaArticles = articles.filter(a => a.data.rubrique === 'IA');
 const politiqueArticles = articles.filter(a => a.data.rubrique === 'Politique');
@@ -19,41 +20,61 @@ const politiqueArticles = articles.filter(a => a.data.rubrique === 'Politique');
       <button id="politiqueBtn">Politique & Sécurité</button>
     </div>
 
-    <!-- IA -->
+    {/* IA */}
     <div id="ia" class="cqfs-list">
       <ul>
-        {iaArticles.map(({ data, slug }) => (
-          <li class="cqfs-item" id={slug}>
-            <h3>{data.title}</h3>
-            <p>{data.description}</p>
-            <div class="share-section">
-              <span class="share-label">🔗 Partager cette page :</span>
-              <div class="share-buttons">
-                <a class="btn-share fb" href="https://www.facebook.com/sharer/sharer.php?u=https://sambokalifasankara.com/cqfs" target="_blank" rel="noopener">📘 Facebook</a>
-                <a class="btn-share wa" href="https://api.whatsapp.com/send?text=https://sambokalifasankara.com/cqfs" target="_blank" rel="noopener">💬 WhatsApp</a>
+        {iaArticles.map(({ data, slug }) => {
+          const articleUrl = `${pageUrl}#${slug}`;
+          const fbShare = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(articleUrl)}`;
+          const waShare = `https://api.whatsapp.com/send?text=${encodeURIComponent(data.title + ' - ' + articleUrl)}`;
+
+          return (
+            <li class="cqfs-item" id={slug}>
+              <h3>{data.title}</h3>
+              <p>{data.description}</p>
+              <div class="share-section">
+                <span class="share-label">🔗 Partager cet article :</span>
+                <div class="share-buttons">
+                  <a class="btn-share fb" href={fbShare} target="_blank" rel="noopener">
+                    📘 Facebook
+                  </a>
+                  <a class="btn-share wa" href={waShare} target="_blank" rel="noopener">
+                    💬 WhatsApp
+                  </a>
+                </div>
               </div>
-            </div>
-          </li>
-        ))}
+            </li>
+          );
+        })}
       </ul>
     </div>
 
-    <!-- Politique -->
+    {/* Politique */}
     <div id="politique" class="cqfs-list hidden">
       <ul>
-        {politiqueArticles.map(({ data, slug }) => (
-          <li class="cqfs-item" id={slug}>
-            <h3>{data.title}</h3>
-            <p>{data.description}</p>
-            <div class="share-section">
-              <span class="share-label">🔗 Partager cette page :</span>
-              <div class="share-buttons">
-                <a class="btn-share fb" href="https://www.facebook.com/sharer/sharer.php?u=https://sambokalifasankara.com/cqfs" target="_blank" rel="noopener">📘 Facebook</a>
-                <a class="btn-share wa" href="https://api.whatsapp.com/send?text=https://sambokalifasankara.com/cqfs" target="_blank" rel="noopener">💬 WhatsApp</a>
+        {politiqueArticles.map(({ data, slug }) => {
+          const articleUrl = `${pageUrl}#${slug}`;
+          const fbShare = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(articleUrl)}`;
+          const waShare = `https://api.whatsapp.com/send?text=${encodeURIComponent(data.title + ' - ' + articleUrl)}`;
+
+          return (
+            <li class="cqfs-item" id={slug}>
+              <h3>{data.title}</h3>
+              <p>{data.description}</p>
+              <div class="share-section">
+                <span class="share-label">🔗 Partager cet article :</span>
+                <div class="share-buttons">
+                  <a class="btn-share fb" href={fbShare} target="_blank" rel="noopener">
+                    📘 Facebook
+                  </a>
+                  <a class="btn-share wa" href={waShare} target="_blank" rel="noopener">
+                    💬 WhatsApp
+                  </a>
+                </div>
               </div>
-            </div>
-          </li>
-        ))}
+            </li>
+          );
+        })}
       </ul>
     </div>
   </section>
