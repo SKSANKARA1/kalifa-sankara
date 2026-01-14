@@ -26,10 +26,10 @@ const politiqueArticles = articles.filter(a => a.data.rubrique === 'Politique');
         {iaArticles.map(({ data, slug }) => {
           const articleUrl = `${pageUrl}#${slug}`;
           const fbShare = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(articleUrl)}`;
-          const waShare = `https://api.whatsapp.com/send?text=${encodeURIComponent(data.title + ' - ' + articleUrl)}`;
-
+          const waText = `${data.title}\n\n${data.description}\n\n${articleUrl}`;
+          const waShare = `https://api.whatsapp.com/send?text=${encodeURIComponent(waText)}`;
           return (
-            <li class="cqfs-item" id={slug}>
+            <li class="cqfs-item" id={slug}> 
               <h3>{data.title}</h3>
               <p>{data.description}</p>
               <div class="share-section">
@@ -55,8 +55,8 @@ const politiqueArticles = articles.filter(a => a.data.rubrique === 'Politique');
         {politiqueArticles.map(({ data, slug }) => {
           const articleUrl = `${pageUrl}#${slug}`;
           const fbShare = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(articleUrl)}`;
-          const waShare = `https://api.whatsapp.com/send?text=${encodeURIComponent(data.title + ' - ' + articleUrl)}`;
-
+          const waText = `${data.title}\n\n${data.description}\n\n${articleUrl}`;
+          const waShare = `https://api.whatsapp.com/send?text=${encodeURIComponent(waText)}`;
           return (
             <li class="cqfs-item" id={slug}>
               <h3>{data.title}</h3>
