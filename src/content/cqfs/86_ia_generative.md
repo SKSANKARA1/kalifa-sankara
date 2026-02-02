@@ -1,0 +1,6 @@
+---
+title: "02-02-2026 | L’IA au service des développeurs et de la qualité logicielle"
+rubrique: "IA"
+description: "Un exemple marquant d’Intelligence Artificielle appliquée au développement logiciel lancé en version technique de prévisualisation en 2021, puis rendu largement disponible en 2022 est GitHub Copilot. Basé sur des modèles de langage avancés, GitHub Copilot aide les développeurs à écrire du code plus rapidement en proposant des complétions contextuelles, des fonctions entières ou des suggestions adaptées au langage utilisé. Son apport principal ne réside pas seulement dans le gain de temps, mais dans l’amélioration de la qualité du code, la réduction des erreurs répétitives et l’accélération de l’apprentissage pour les profils moins expérimentés. Cet outil illustre comment l’IA peut transformer des métiers existants en agissant comme un copilote, et non comme un substitut et surtout en renforçant les capacités humaines dans un domaine hautement technique."
+date: 2025-07-01
+---
